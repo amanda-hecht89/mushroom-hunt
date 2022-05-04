@@ -6,8 +6,7 @@ const friendInputEl = document.getElementById('friend-input');
 const mushroomsEl = document.querySelector('.mushrooms');
 const addMushroomButton = document.getElementById('add-mushroom-button');
 const addFriendButton = document.getElementById('add-friend-button');
-const friendsList = document.getElementById('friend');
-const mush = document.getElementById('mushrooms');
+
 
 // initialize state
 

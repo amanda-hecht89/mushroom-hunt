@@ -6,6 +6,8 @@ const friendInputEl = document.getElementById('friend-input');
 const mushroomsEl = document.querySelector('.mushrooms');
 const addMushroomButton = document.getElementById('add-mushroom-button');
 const addFriendButton = document.getElementById('add-friend-button');
+const friendsList = document.getElementById('friend');
+
 // initialize state
 
 let mushroomCount = 3;
@@ -42,25 +44,30 @@ addMushroomButton.addEventListener('click', () => {
 
 addFriendButton.addEventListener('click', () => {
     // get the name from the input
+    
     // create a new friend object
     const newFriend = {
         name: friendInputEl.value,
+        satisfaction: 1,
     };
     // push it into the friends state array, passed in as an argument
     friendData.push(newFriend);
     // reset the input
-    friendInputEl.value = '';
+    friendInputEl.textContent = '';
     // display all the friends (use a function here)
     displayFriends();
 });
 
 function displayFriends() {
     // clear out the friends in DOM
-
+    friendsList.textContent = '';
     // for each friend in state . . .
     for (let friends of friendData) {
+       // const li = renderFriend(friend);
         // use renderFriend to make a friendEl
         const friendEl = renderFriend(friends);
+li.textContent = `${friend.satisfaction} ${emojiEl.textContent}`;
+
         
         // this is a clickable list, so . . .
         //     add an event listener to each friend
@@ -72,7 +79,7 @@ function displayFriends() {
         //             then display your friends and mushrooms with the updated state
 
         // append the friendEl to the friends list in DOM
-        friendInputEl.append.apply(friendEl);
+        friendInputEl.appendChild(friendEl);
     }
 }
 

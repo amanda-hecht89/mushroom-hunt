@@ -63,15 +63,20 @@ function displayFriends() {
     friendsList.textContent = '';
     // for each friend in state . . .
     for (let friends of friendData) {
-       // const li = renderFriend(friend);
         // use renderFriend to make a friendEl
         const friendEl = renderFriend(friends);
-li.textContent = `${friend.satisfaction} ${emojiEl.textContent}`;
-
-        
         // this is a clickable list, so . . .
         //     add an event listener to each friend
         friendEl.addEventListener('click', () => {
+            if (mushroomCount === 0) {
+                alert('need more mushrooms');
+            } else if (mushroomCount > 0 && friends.satisfaction < 3) {
+                friends.satisfaction++; 
+                mushroomCount--;
+
+                displayFriends();
+
+            } 
 
         });
         //         and if the friend's satisfaction level is below 3 and you have mushrooms left
